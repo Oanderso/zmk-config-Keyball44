@@ -68,12 +68,14 @@
     };
 };
 
-/* 2. Directly extend your Keyball's existing listener node */
+/* 2. Safely extend the listener ONLY if it exists on the active half */
+#if DT_NODE_EXISTS(DT_NODELABEL(trackball_listener))
 &trackball_listener {
     input-processors = 
         <&x_scaler 3 2>,   /* Speeds up horizontal (X) axis by 1.5x (Multiplier 3, Divisor 2) */
         <&y_scaler 1 2>;   /* Slows down vertical (Y) axis by half (Multiplier 1, Divisor 2) */
 };
+#endif
     /* ============================================================= */
 
 

@@ -66,15 +66,14 @@
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_Y>;
     };
+};
 
-    /* 2. Override the Keyball44 trackball listener to use your scalers */
-    trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-        input-processors = 
-            <&x_scaler 1 1>,   /* Speeds up horizontal (X) axis by 1.5x (Multiplier 3, Divisor 2) */
-            <&y_scaler 2 1>;   /* Slows down vertical (Y) axis by half (Multiplier 1, Divisor 2) */
-    };
+/* 2. Directly extend your Keyball's existing listener node */
+&trackball_listener {
+    input-processors = 
+        <&x_scaler 3 2>,   /* Speeds up horizontal (X) axis by 1.5x (Multiplier 3, Divisor 2) */
+        <&y_scaler 1 2>;   /* Slows down vertical (Y) axis by half (Multiplier 1, Divisor 2) */
+};
     /* ============================================================= */
 
 

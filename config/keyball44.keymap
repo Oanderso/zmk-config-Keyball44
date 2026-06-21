@@ -56,13 +56,7 @@
 
 /* ==================== Pointer Scalar ==================== */
 /* Horizontal X axis: 3/2 = 1.5x speed */
-/* Vertical Y axis:   1/2 = 0.5x speed */
-
-&trackball_listener {
-    input-processors =
-        <&zip_x_scaler 3 2>,
-        <&zip_y_scaler 1 2>;
-};
+/* Vertical Y axis:   2/1 = 2.0x speed */
 
 /* ========================================================= */
 
